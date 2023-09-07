@@ -1,7 +1,10 @@
 package com.example.privatehospitalapp.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.*;
+
+import javax.print.Doc;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -11,4 +14,19 @@ import lombok.*;
 @NoArgsConstructor
 public class Rent {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
+
+    private LocalDate dateStart;
+    private LocalDate dateEnd;
+    private double totalPrice;
 }
