@@ -16,17 +16,17 @@ public class DoctorController {
     @Autowired
     private DoctorService doctorService;
 
-    @PostMapping()
+    @PostMapping("/add")
     public String addDoctor(@ModelAttribute Doctor doctor){
         Doctor savedDoctor = doctorService.saveDoctor(doctor);
-        return "home";
+        return "doctors";
     }
 
     @GetMapping()
     public String showDoctors(final ModelMap modelMap){
         List<Doctor> doctors = doctorService.getAllDoctors();
         modelMap.addAttribute("doctors", doctors);
-        return "Doctors:";
+        return "doctors";
     }
 
     @GetMapping("/{id}")
