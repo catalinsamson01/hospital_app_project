@@ -1,9 +1,7 @@
 package com.example.privatehospitalapp.controller;
 
 import com.example.privatehospitalapp.entity.Doctor;
-import com.example.privatehospitalapp.entity.Patient;
 import com.example.privatehospitalapp.service.DoctorService;
-import com.example.privatehospitalapp.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -21,7 +19,7 @@ public class DoctorController {
     @PostMapping()
     public String addDoctor(@ModelAttribute Doctor doctor){
         Doctor savedDoctor = doctorService.saveDoctor(doctor);
-        return "homePage";
+        return "home";
     }
 
     @GetMapping()

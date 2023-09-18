@@ -5,6 +5,7 @@ import com.example.privatehospitalapp.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,32 +18,21 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
 
-    @PostMapping()
-    public String addPatient(@ModelAttribute Patient patient){
-        Patient savedPatient = patientService.savePatient(patient);
-        return "homePage";
+    @PostMapping("/add-patient")
+    public String addPatient(@RequestParam String name, @RequestParam String lastName, @RequestParam String disease) {
+        // Creează un obiect Patient cu datele primite din formular
+        Patient patient = new Patient();
+        patient.setName(name);
+        patient.setLastName(lastName);
+        patient.setDisease(disease);
+
+        // Adaugă pacientul în baza de date
+        patientService.savePatient(patient);
+
+        // Redirectează către o pagină de succes sau de confirmare
+        return "redirect:/success";
     }
-
-    @GetMapping()
-    public String showPatients(final ModelMap modelMap){
-        List<Patient> patients = patientService.getAllPatients();
-        modelMap.addAttribute("patients", patients);
-        return "Patients:";
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Patient> getPatientById(@PathVariable Long id){
-        Patient patient = patientService.searchPatientById(id);
-        if(id==1) {
-            throw new RuntimeException("The patient with id " + id + " doesn' exist.");
-        }
-        return ResponseEntity.ok(patient);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deletePatientById(@PathVariable Long id){
-        patientService.deletePatientById(id);
-    }
-
-
 }
+
+
+
