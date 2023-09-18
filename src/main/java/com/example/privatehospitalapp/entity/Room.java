@@ -1,21 +1,29 @@
 package com.example.privatehospitalapp.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Data
+@Table(name = "room")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class HospitalRoom {
+public class Room {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int capacity;
+
+    @OneToMany(mappedBy = "room")
     private List<Patient> patients;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
 }
