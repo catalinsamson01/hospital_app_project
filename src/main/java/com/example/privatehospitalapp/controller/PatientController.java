@@ -31,10 +31,10 @@ public class PatientController {
     @PostMapping("/add")
     public String addPatient(@ModelAttribute Patient patient) {
         patientService.savePatient(patient);
-        return "redirect:/patients";
+        return "redirect:/rents";
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteDoctorById(@PathVariable Long id){
         patientService.deletePatientById(id);
     }

@@ -8,7 +8,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-image: url('https://wallpapercave.com/wp/wp9040625.jpg');
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ9ZdREgMv6v7R778FeEn9oSZZu-Rbz0hcvQ&usqp=CAU');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -87,17 +87,21 @@
 
 <div class="content">
   <h1>Listă Doctori</h1>
-  <table>
+  <table class="table table-script mt-4">
     <thead>
     <tr>
       <th>Nume</th>
-      <th>Prenume</th>
       <th>Specializare</th>
     </tr>
     </thead>
-    <tbody>
-    <!-- Aici veți afișa doctorii din baza de date -->
-    </tbody>
+    <tr th:each="doctor:${doctors}">
+      <td th:text="${doctor.name}"></td>
+      <td th:text="${doctor.specialization}"></td>
+
+
+
+    </tr>
+
   </table>
 </div>
 </body>
