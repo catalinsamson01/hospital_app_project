@@ -14,6 +14,8 @@ public class DoctorService {
     @Autowired
     public DoctorRepository doctorRepository;
 
+
+
     public Doctor saveDoctor(Doctor doctor) {
         return doctorRepository.save(doctor);
     }
@@ -29,5 +31,9 @@ public class DoctorService {
 
     public void deleteDoctorById(Long id){
         doctorRepository.deleteById(id);
+    }
+
+    public String getDoctorBySpecialization(Doctor doctor){
+        return doctorRepository.getDoctorBySpecialization(doctor);
     }
 }

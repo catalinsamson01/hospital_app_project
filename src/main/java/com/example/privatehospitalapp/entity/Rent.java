@@ -28,6 +28,6 @@ public class Rent {
     private Doctor doctor;
 
     private LocalDate dateStart;
-    private LocalDate dateEnd;
-    private double totalPrice;
+
+    private double totalPrice = 100;
 }

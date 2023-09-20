@@ -24,6 +24,5 @@ public class Doctor {
     @OneToMany(mappedBy = "doctor")
     private List<Patient> patients;
 
-    @OneToMany(mappedBy = "doctor")
-    private List<Room> rooms;
+
 }

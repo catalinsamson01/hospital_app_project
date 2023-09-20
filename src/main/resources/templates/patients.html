@@ -1,12 +1,164 @@
-<form action="/add-patient" method="post">
-  <label for="name">Nume:</label>
-  <input type="text" id="name" name="name" required><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Pacienți</title>
+    <style>
+        /* Stilizare pentru navbar */
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
 
-  <label for="lastName">Prenume:</label>
-  <input type="text" id="lastName" name="lastName" required><br>
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
 
-  <label for="disease">Boală:</label>
-  <input type="text" id="disease" name="disease" required><br>
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
 
-  <input type="submit" value="Adaugă pacient">
+        /* Stilizare pentru tabel */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Stilizare pentru formular */
+        form {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('https://www.lifewire.com/thmb/CLI14Ku63Uujk5VlROmhN67G-3I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/wallhaven-5919d60a5f9b58f4c04e8b26.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+        background-color: #333;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .content {
+        text-align: center;
+        padding: 100px;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin: 0;
+        padding: 0;
+    }
+
+    p {
+        font-size: 18px;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+</head>
+</body>
+<div class="navbar">
+    <a href="home">Home</a>
+    <a href="patients">Pacienti</a>
+    <a href="doctors">Doctori</a>
+    <a href="rents">Rezervari</a>
+    <a href="about">Despre Noi</a>
+</div>
+
+<!-- Tabel pentru adăugarea pacienților -->
+<h2>Adaugă Pacienți</h2>
+<form action="/patients/add" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required>
+
+    <label for="disease">Disease:</label>
+    <input type="text" id="disease" name="disease" required>
+
+    <!-- redirect to /patients to simulate refresh page -->
+    <input type="submit" value="Adaugă Pacient">
 </form>
+
+<!-- Tabel pentru afișarea pacienților existenți -->
+<!--<h2>Pacienți</h2>-->
+<!--<table>-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>Name</th>-->
+<!--    <th>Last Name</th>-->
+<!--    <th>Disease</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  &lt;!&ndash; Aici puteți adăuga linii cu date despre pacienți din baza de date &ndash;&gt;-->
+<!--  </tbody>-->
+<!--</table>-->
+</body>
+</html>

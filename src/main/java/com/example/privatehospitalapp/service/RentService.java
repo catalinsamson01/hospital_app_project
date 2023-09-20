@@ -14,6 +14,14 @@ public class RentService {
     public RentRepository rentRepository;
 
     public Rent saveRent(Rent rent){
+        // create empty obj -> Rent newRent = new Rent();
+        // update doctor -> newRent.set(doctor)
+        // update patient -> newRent.set(patient)
+
+        // update patient in patient table
+            // Patient found = findById -> patient.id
+            // found.setDoctorId(doctor.id)
+            // patientRepo.save(found)
         return rentRepository.save(rent);
     }
 
