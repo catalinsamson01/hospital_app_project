@@ -101,13 +101,13 @@
       <input type="hidden" name="patientId" value="${pacient.id}">
 
       <label for="allPatients">Alegeți un pacient:</label>
-      <select id="allPatients" name="patientId" required>
-        <option th:each="it: ${allPatients}" th:value="${it.name}" th:text="${it.name}"></option>
+      <select id="allPatients" name="patientName" required>
+        <option th:each="it: ${allPatients}" th:value="${it.id}" th:text="${it.name}"></option>
       </select>
 
       <label for="allDoctors">Alegeți un doctor:</label>
-      <select id="allDoctors" name="allDoctors" required>
-        <option th:each="it: ${allDoctors}" th:value="${it.name}"  th:text="${it.name}"></option>
+      <select id="allDoctors" name="doctorName" required>
+        <option th:each="it: ${allDoctors}" th:value="${it.id}"  th:text="${it.name}"></option>
       </select>
 
       <label for="startDate">Rezerva data:</label>

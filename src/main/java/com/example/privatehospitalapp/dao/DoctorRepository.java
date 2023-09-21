@@ -10,10 +10,13 @@ import java.util.Optional;
 @Repository
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
+    @Override
     Doctor save(Doctor doctor);
-
+    @Override
     Optional<Doctor> findById(Long id);
+    @Override
     List<Doctor> findAll();
+    @Override
     void deleteById(Long id);
 
     String getDoctorBySpecialization(Doctor doctor);

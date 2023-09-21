@@ -23,5 +23,9 @@ public class Patient {
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
+//    public void setDoctorId(Long id){
+//        doctor.getId();
+//    }
+
 
 }

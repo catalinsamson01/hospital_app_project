@@ -39,9 +39,9 @@ public class RentController {
     }
 
     @PostMapping("/add")
-    public String addRent(@ModelAttribute Rent rent) {
-        // @RequestParam patientId, @RequestParam doctorId
-        rentService.saveRent(rent);
+    public String addRent(@RequestParam Long patientName, @RequestParam Long doctorName) {
+        System.out.println(patientName + " -> " + doctorName);
+        rentService.saveRent(patientName, doctorName);
         return "redirect:/confirmation";
     }
 }
