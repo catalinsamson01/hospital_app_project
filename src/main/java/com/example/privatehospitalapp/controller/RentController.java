@@ -1,7 +1,9 @@
 package com.example.privatehospitalapp.controller;
 
+import com.example.privatehospitalapp.entity.Doctor;
 import com.example.privatehospitalapp.entity.Patient;
 import com.example.privatehospitalapp.entity.Rent;
+import com.example.privatehospitalapp.service.DoctorService;
 import com.example.privatehospitalapp.service.PatientService;
 import com.example.privatehospitalapp.service.RentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +20,28 @@ public class RentController {
 
     @Autowired
     private RentService rentService;
+    @Autowired
+    private DoctorService doctorService;
+    @Autowired
+    private PatientService patientService;
 
     @GetMapping()
     public String showRents(final ModelMap modelMap){
         List<Rent> rents = rentService.getAllRents();
-        modelMap.addAttribute("rents", rents);
-        return "rent";
+        modelMap.addAttribute("allRents", rents);
+
+        List<Patient> patients = patientService.getAllPatients();
+        modelMap.addAttribute("allPatients", patients);
+
+        List<Doctor> doctors = doctorService.getAllDoctors();
+        modelMap.addAttribute("allDoctors", doctors);
+        return "rents";
+    }
+
+    @PostMapping("/add")
+    public String addRent(@RequestParam Long patientName, @RequestParam Long doctorName) {
+        System.out.println(patientName + " -> " + doctorName);
+        rentService.saveRent(patientName, doctorName);
+        return "redirect:/confirmation";
     }
 }

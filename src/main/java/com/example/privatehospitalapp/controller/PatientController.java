@@ -14,23 +14,29 @@ import java.util.List;
 @Controller
 @RequestMapping("/patients")
 public class PatientController {
+    private final PatientService patientService;
 
     @Autowired
-    private PatientService patientService;
+    public PatientController(PatientService patientService) {
+        this.patientService = patientService;
+    }
 
-    @PostMapping("/add-patient")
-    public String addPatient(@RequestParam String name, @RequestParam String lastName, @RequestParam String disease) {
-        // Creează un obiect Patient cu datele primite din formular
-        Patient patient = new Patient();
-        patient.setName(name);
-        patient.setLastName(lastName);
-        patient.setDisease(disease);
+    @GetMapping
+    public String listPatients(Model model) {
+        List<Patient> patients = patientService.getAllPatients();
+        model.addAttribute("patients", patients);
+        return "patients";
+    }
 
-        // Adaugă pacientul în baza de date
+    @PostMapping("/add")
+    public String addPatient(@ModelAttribute Patient patient) {
         patientService.savePatient(patient);
+        return "redirect:/rents";
+    }
 
-        // Redirectează către o pagină de succes sau de confirmare
-        return "redirect:/success";
+    @DeleteMapping("/delete/{id}")
+    public void deleteDoctorById(@PathVariable Long id){
+        patientService.deletePatientById(id);
     }
 }
 

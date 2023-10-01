@@ -3,7 +3,6 @@ package com.example.privatehospitalapp.config;
 import com.example.privatehospitalapp.entity.Doctor;
 import com.example.privatehospitalapp.entity.Patient;
 import com.example.privatehospitalapp.entity.Rent;
-import com.example.privatehospitalapp.entity.Room;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -31,7 +30,6 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         // disable HHTP method for each Repository Rest Resource
         disableHttpMethod(Doctor.class, config, theUnsupportedActions);
         disableHttpMethod(Patient.class, config, theUnsupportedActions);
-        disableHttpMethod(Room.class, config, theUnsupportedActions);
         disableHttpMethod(Rent.class, config, theUnsupportedActions);
     }
 

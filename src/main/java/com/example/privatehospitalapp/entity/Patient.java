@@ -23,7 +23,9 @@ public class Patient {
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
-    @ManyToOne
-    @JoinColumn(name = "room_id")
-    private Room room;
+//    public void setDoctorId(Long id){
+//        doctor.getId();
+//    }
+
+
 }
